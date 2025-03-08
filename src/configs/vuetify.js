@@ -1,6 +1,14 @@
 import { createVuetify } from "vuetify";
-import { VApp, VMain, VContainer, VBtn } from "vuetify/components";
+import {
+  VApp,
+  VMain,
+  VContainer,
+  VBtn,
+  VTextField,
+  VForm,
+} from "vuetify/components";
 import "vuetify/styles";
+import "@mdi/font/css/materialdesignicons.css";
 
 import { aliases, mdi } from "vuetify/iconsets/mdi";
 
@@ -10,6 +18,8 @@ const vuetify = createVuetify({
     VMain,
     VContainer,
     VBtn,
+    VTextField,
+    VForm,
   },
   theme: {
     defaultTheme: "customTheme",
