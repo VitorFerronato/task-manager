@@ -1,5 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,4 +11,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: "Montserrat", sans-serif !important;
+}
+a {
+  text-decoration: none;
+}
+
+.align-div-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.color-error {
+  color: #ec4c37;
 }

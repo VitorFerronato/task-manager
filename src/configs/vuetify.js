@@ -10,8 +10,6 @@ import {
 import "vuetify/styles";
 import "@mdi/font/css/materialdesignicons.css";
 
-import { aliases, mdi } from "vuetify/iconsets/mdi";
-
 const vuetify = createVuetify({
   components: {
     VApp,
@@ -29,13 +27,6 @@ const vuetify = createVuetify({
           error: "#EC4C37",
         },
       },
-    },
-  },
-  icons: {
-    defaultSet: "mdi",
-    aliases,
-    sets: {
-      mdi,
     },
   },
 });
