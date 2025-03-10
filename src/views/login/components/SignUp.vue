@@ -1,6 +1,6 @@
 <template>
   <div class="pa-5 login-card">
-    <h4 class="text-center text-h5 mb-4">SIGN IN</h4>
+    <h4 class="text-center text-h5 mb-4">SIGN UP</h4>
 
     <v-form @submit.prevent="validateForm" ref="formRef" :disabled="isLoading">
       <div class="mb-4">
@@ -41,13 +41,8 @@
       </div>
 
       <div class="d-flex justify-space-between mt-2 mb-4">
-        <router-link
-          to="/login/password-recovery"
-          class="text-primary text-caption"
-          >Esqueci minha senha</router-link
-        >
-        <router-link to="/login/sign-up" class="text-primary text-caption"
-          >Registrar-se</router-link
+        <router-link to="/login/sign-in" class="text-primary text-caption"
+          >Already have account?</router-link
         >
       </div>
 
@@ -59,24 +54,11 @@
         <v-btn
           :loading="isLoading"
           :disabled="isLoading"
-          text="Login"
+          text="Create account"
           color="primary"
           type="submit"
           class="text-capitalize"
         />
-      </div>
-
-      <div class="d-flex justify-center align-center mb-2">
-        <div class="line"></div>
-        <span class="text-caption px-2">Sign in with</span>
-        <div class="line"></div>
-      </div>
-
-      <div
-        class="text-center cursor-pointer google-icon"
-        @click="loginWithGoogle"
-      >
-        <GoogleIcon />
       </div>
     </v-form>
   </div>
@@ -85,17 +67,13 @@
 <script setup>
 import { ref } from "vue";
 import { auth } from "@/configs/firebase.js";
-import {
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import { useRouter } from "vue-router";
-import GoogleIcon from "../../../components/GoogleIcon.vue";
+const router = useRouter();
 
 const showPassword = ref(false);
 let isLoading = ref(false);
-let hasError = ref(false);
 const rules = ref({
   required: (value) => !!value || "Este campo é obrigatório",
 });
@@ -103,40 +81,26 @@ const rules = ref({
 const formRef = ref();
 const validateForm = async () => {
   const isValid = await formRef.value.validate();
-  if (isValid.valid) signIn();
+  if (isValid.valid) signUp();
 };
 
 const email = ref(null);
 const password = ref(null);
-const signIn = async () => {
+const signUp = async () => {
   isLoading.value = true;
-  hasError.value = false;
 
   try {
-    const userCredentials = await signInWithEmailAndPassword(
+    const userCredentials = await createUserWithEmailAndPassword(
       auth,
       email.value,
       password.value
     );
-    console.log("usuário logado", userCredentials.user);
+    console.log("usuário criado", userCredentials.user);
+    router.push("/login/sign-in");
   } catch (error) {
     console.log(error);
-    hasError.value = true;
   }
   isLoading.value = false;
-};
-
-const router = useRouter();
-
-const loginWithGoogle = async () => {
-  const provider = new GoogleAuthProvider();
-
-  try {
-    await signInWithPopup(auth, provider);
-    router.push("/dashboard");
-  } catch (error) {
-    console.error(error);
-  }
 };
 </script>
 
@@ -145,11 +109,6 @@ const loginWithGoogle = async () => {
   width: 400px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-.line {
-  width: 60px;
-  border: 0.5px solid #ccc;
 }
 
 a:hover {
