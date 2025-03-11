@@ -3,7 +3,8 @@
     <h4 class="text-center text-h5 mb-4">PASSWORD RECOVERY</h4>
 
     <v-form
-      @submit.prevent="resetPassword"
+      @submit.prevent="validateForm"
+      ref="formRef"
       class="mx-auto pa-5"
       max-width="400"
     >
@@ -22,7 +23,9 @@
       </v-text-field>
 
       <div class="text-center">
-        <v-btn color="primary" class="text-capitalize">Recuperar Senha</v-btn>
+        <v-btn color="primary" type="submit" class="text-capitalize"
+          >Recuperar Senha</v-btn
+        >
       </div>
 
       <div class="text-center mt-4">
@@ -48,7 +51,12 @@ const rules = ref({
   required: (value) => !!value || "Este campo é obrigatório",
 });
 
-const email = ref("");
+const email = ref(null);
+
+const validateForm = async () => {
+  const isValid = await formRef.value.validate();
+  if (isValid.valid) resetPassword();
+};
 
 const resetPassword = async () => {
   showMessage.value = true;

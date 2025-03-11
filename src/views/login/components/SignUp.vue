@@ -11,7 +11,7 @@
           variant="outlined"
           density="comfortable"
           hide-details="auto"
-          placeholder="Type your email"
+          placeholder="joe@gmail.com"
           color="primary"
           prepend-inner-icon="mdi-email-outline"
           class="mt-1"
@@ -46,10 +46,6 @@
         >
       </div>
 
-      <div v-if="hasError" class="text-center mb-2">
-        <span class="text-caption color-error">Usuário ou senha invalidos</span>
-      </div>
-
       <div class="d-flex justify-center mb-4">
         <v-btn
           :loading="isLoading"
@@ -75,7 +71,7 @@ const router = useRouter();
 const showPassword = ref(false);
 let isLoading = ref(false);
 const rules = ref({
-  required: (value) => !!value || "Este campo é obrigatório",
+  required: (value) => !!value || "Field required",
 });
 
 const formRef = ref();
@@ -95,8 +91,7 @@ const signUp = async () => {
       email.value,
       password.value
     );
-    console.log("usuário criado", userCredentials.user);
-    router.push("/login/sign-in");
+    if (userCredentials.user) router.push("/login/sign-in");
   } catch (error) {
     console.log(error);
   }

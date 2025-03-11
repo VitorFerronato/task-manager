@@ -84,14 +84,16 @@
 
 <script setup>
 import { ref } from "vue";
+import GoogleIcon from "../../../components/GoogleIcon.vue";
 import { auth } from "@/configs/firebase.js";
 import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
+
 import { useRouter } from "vue-router";
-import GoogleIcon from "../../../components/GoogleIcon.vue";
+const router = useRouter();
 
 const showPassword = ref(false);
 let isLoading = ref(false);
@@ -118,15 +120,13 @@ const signIn = async () => {
       email.value,
       password.value
     );
-    console.log("usuário logado", userCredentials.user);
+    if (userCredentials.user) router.push("/dashboard");
   } catch (error) {
     console.log(error);
     hasError.value = true;
   }
   isLoading.value = false;
 };
-
-const router = useRouter();
 
 const loginWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
