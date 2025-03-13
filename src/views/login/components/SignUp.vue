@@ -41,7 +41,7 @@
       </div>
 
       <div class="d-flex justify-space-between mt-2 mb-4">
-        <router-link to="/login/sign-in" class="text-primary text-caption"
+        <router-link to="/login/sign-in" class="text-surface text-caption"
           >Already have account?</router-link
         >
       </div>
@@ -99,14 +99,19 @@ const signUp = async () => {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .login-card {
   width: 400px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-a:hover {
+a {
   text-decoration: underline;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 </style>

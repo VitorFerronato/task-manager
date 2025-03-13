@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #155750;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,14 +18,15 @@
 }
 a {
   text-decoration: none;
+  color: white;
+}
+
+router-link {
+  color: white;
 }
 
 .align-div-center {
   position: absolute;
   top: 50%;
   left: 50%;
-}
-
-.color-error {
-  color: #ec4c37;
 }

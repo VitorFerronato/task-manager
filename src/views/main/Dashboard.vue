@@ -1,10 +1,18 @@
 <template>
   <div>
-    <span>DASHBOARD</span>
-    <router-link to="/sign-out"><span>LOGOUT</span></router-link>
+    <Header />
+
+    <Dashboard class="dashboard" />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Header from "@/components/Header.vue";
+import Dashboard from "@/components/Dashboard/Dashboard.vue";
+</script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.dashboard {
+  margin-top: 100px;
+}
+</style>

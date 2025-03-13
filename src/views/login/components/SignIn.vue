@@ -43,16 +43,18 @@
       <div class="d-flex justify-space-between mt-2 mb-4">
         <router-link
           to="/login/password-recovery"
-          class="text-primary text-caption"
-          >Esqueci minha senha</router-link
+          class="text-caption text-surface"
+          >Forgot password?</router-link
         >
-        <router-link to="/login/sign-up" class="text-primary text-caption"
-          >Registrar-se</router-link
+        <router-link to="/login/sign-up" class="text-caption text-surface"
+          >Register</router-link
         >
       </div>
 
       <div v-if="hasError" class="text-center mb-2">
-        <span class="text-caption color-error">Usuário ou senha invalidos</span>
+        <span class="text-caption text-error"
+          >Incorrect username or password</span
+        >
       </div>
 
       <div class="d-flex justify-center mb-4">
@@ -68,7 +70,7 @@
 
       <div class="d-flex justify-center align-center mb-2">
         <div class="line"></div>
-        <span class="text-caption px-2">Sign in with</span>
+        <span class="text-caption px-2">Or Sign in with</span>
         <div class="line"></div>
       </div>
 
@@ -99,7 +101,7 @@ const showPassword = ref(false);
 let isLoading = ref(false);
 let hasError = ref(false);
 const rules = ref({
-  required: (value) => !!value || "Este campo é obrigatório",
+  required: (value) => !!value || "Required!",
 });
 
 const formRef = ref();
@@ -140,19 +142,25 @@ const loginWithGoogle = async () => {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .login-card {
   width: 400px;
-  border: 1px solid #ccc;
+  border: 1px solid #00ca9d;
   border-radius: 5px;
-}
 
-.line {
-  width: 60px;
-  border: 0.5px solid #ccc;
-}
+  .line {
+    width: 60px;
+    border: 0.5px solid #ccc;
+    transition: border 0.3s;
+  }
 
-a:hover {
-  text-decoration: underline;
+  a {
+    text-decoration: underline;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }
 </style>
