@@ -75,7 +75,7 @@ const resetPassword = async () => {
 <style scoped>
 .login-card {
   width: 400px;
-  border: 1px solid #ccc;
+  border: 0.5px solid #00ca9d;
   border-radius: 5px;
 }
 

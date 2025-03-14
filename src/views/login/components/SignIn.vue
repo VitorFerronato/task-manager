@@ -41,12 +41,10 @@
       </div>
 
       <div class="d-flex justify-space-between mt-2 mb-4">
-        <router-link
-          to="/login/password-recovery"
-          class="text-caption text-surface"
+        <router-link to="/login/password-recovery" class="text-caption"
           >Forgot password?</router-link
         >
-        <router-link to="/login/sign-up" class="text-caption text-surface"
+        <router-link to="/login/sign-up" class="text-caption"
           >Register</router-link
         >
       </div>
@@ -145,7 +143,7 @@ const loginWithGoogle = async () => {
 <style scoped lang="scss">
 .login-card {
   width: 400px;
-  border: 1px solid #00ca9d;
+  border: 0.5px solid #00ca9d;
   border-radius: 5px;
 
   .line {

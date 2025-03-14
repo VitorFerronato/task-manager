@@ -2,13 +2,12 @@
   <div>
     <Header />
 
-    <Dashboard class="dashboard" />
+    <h4 class="mt-16">Dashboard.</h4>
   </div>
 </template>
 
 <script setup>
 import Header from "@/components/Header.vue";
-import Dashboard from "@/components/Dashboard/Dashboard.vue";
 </script>
 
 <style scoped>
