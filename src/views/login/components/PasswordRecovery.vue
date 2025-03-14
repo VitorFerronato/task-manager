@@ -24,7 +24,7 @@
 
       <div class="text-center">
         <v-btn color="primary" type="submit" class="text-capitalize"
-          >Recuperar Senha</v-btn
+          >Recover password</v-btn
         >
       </div>
 
@@ -48,7 +48,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 
 const showMessage = ref("");
 const rules = ref({
-  required: (value) => !!value || "Este campo é obrigatório",
+  required: (value) => !!value || "Required!",
 });
 
 const email = ref(null);

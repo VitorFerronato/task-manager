@@ -59,8 +59,7 @@
 
       <div class="d-flex justify-center mb-4">
         <v-btn
-          :loading="isLoading"
-          :disabled="isLoading"
+    
           text="Login"
           color="primary"
           type="submit"

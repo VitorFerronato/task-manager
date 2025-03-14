@@ -1,15 +1,13 @@
 <template>
   <div>
-    <Header />
-
-    <Dashboard class="dashboard" />
+    <span class="mr-4">DASHBOARD</span>
+    <router-link to="/sign-out">
+      <v-btn>Logout</v-btn>
+    </router-link>
   </div>
 </template>
 
-<script setup>
-import Header from "@/components/Header.vue";
-import Dashboard from "@/components/Dashboard/Dashboard.vue";
-</script>
+<script setup></script>
 
 <style scoped>
 .dashboard {

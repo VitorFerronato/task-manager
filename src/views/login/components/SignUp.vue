@@ -71,7 +71,7 @@ const router = useRouter();
 const showPassword = ref(false);
 let isLoading = ref(false);
 const rules = ref({
-  required: (value) => !!value || "Field required",
+  required: (value) => !!value || "Required!",
 });
 
 const formRef = ref();
